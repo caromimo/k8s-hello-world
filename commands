@@ -1,0 +1,16 @@
+$ gcloud auth login
+$ gcloud projects list
+$ gcloud services enable container.googleapis.com
+$ gcloud container --project "k8s-hello-world-with-my-love" clusters create-auto "autopilot-cluster-1" --region "northamerica-northeast2" 
+$ gcloud components list
+$ kubectl get pods -A
+$ kustomize init
+$ kubectl create deployment fast-api --image=caromimo/fast-api --replicas=1 --dry-run=client -o yaml > fast-api-deployment.yaml
+$ kubectl create service loadbalancer fast-api --tcp 80:8000 --dry-run=client -o yaml > fast-api-service.yaml
+$ kustomize edit add resource *.yaml
+$ kustomize build | kubectl apply -f -
+$ watch kubectl get svc
+$ watch kubectl get pods
+$ curl 34.130.169.142/now
+$ kubectl logs fast-api-656d748cc-gzrfl
+$ kubectl logs -f fast-api-656d748cc-gzrfl
